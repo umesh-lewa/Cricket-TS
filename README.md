@@ -1,5 +1,8 @@
 # Cricket-TS
 
+Team A = Team 1
+Team B = Team 2
+
 Start with Hit 1 of Team A/Team 1 by default
 
 Once you Hit for one team. its hit button will get disabled , until you hit for the other team

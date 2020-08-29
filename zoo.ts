@@ -191,6 +191,13 @@ function playOneBallTeamB() {
 
         teamB.addTotalPlayerScoreForZero(teamBCurrentPlayer, currentBallScore, teamBCurrentPlayerBallCount);
 
+        if(teamBCurrentPlayer.indexOf("Player10") != -1){
+            console.log("**************** Team B Player 10 has hit 0 Ball ****************");
+            hitButonTeamB.disabled = false;
+            hitButonTeamA.disabled = false;
+            generateResult();
+        }
+        
         teamBCurrentPlayerNumber++;
         teamBCurrentPlayerBallCount = 1;
         let tempCurPlayer = teamBCurrentPlayer.split("");
@@ -208,12 +215,7 @@ function playOneBallTeamB() {
         hitButonTeamB.disabled = true;
         hitButonTeamA.disabled = false;
 
-        if(teamBCurrentPlayer.indexOf("Player10") != -1){
-
-            hitButonTeamB.disabled = false;
-            hitButonTeamA.disabled = false;
-            generateResult();
-        }
+        
 
         return;
     }
