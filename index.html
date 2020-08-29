@@ -22,147 +22,302 @@
 </head>
 
 <body>
+	<div class="container-fluid">
+		<div class="row d-flex justify-content-center">
+			<h2>Cricket 10</h2>
+		</div>
+		<!--
+		<div class="row">
+			<div class="col-md-4 d-flex justify-content-center">
+				<h3>Team A Score</h3>
+				<h2 id="TeamAScoreBoard">0</h2>
+				<br>
+				<button id="HitBallTButtonTeamA" type="button" class="btn btn-primary">Hit</button>
+			</div>
+			<div class="col-md-4 d-flex justify-content-center">
+				<h3>Timer</h3>
+				<br>
+
+			</div>
+			<div class="col-md-4 d-flex justify-content-center">
+				<h3>Team B Score</h3>
+				<h2 id="TeamBScoreBoard">0</h2>
+				<br />
+				<button id="HitBallTButtonTeamB" type="button" class="btn btn-primary">Hit</button>
+			</div>
+		</div>
+	-->
+		<div class="row"
+			style="border-top:solid grey 1px;border-bottom:solid grey 1px;padding-top:10px;padding-bottom:10px;">
+			<div class="col-md-4" style="text-align:center;">
+				<h4>Team 1 Score</h4>
+				<h5 id="TeamAScoreBoard">0</h5>
+				<button id="HitBallTButtonTeamA" type="button" class="btn btn-primary">Hit 1</button>
+			</div>
+			<div class="col-md-4" style="text-align:center;">
+				<h4>Timer</h4>
+				<h4 id="timer">60</h4>
+			</div>
+			<div class="col-md-4" style="text-align:center;">
+				<h4>Team 2 Score</h4>
+				<h5 id="TeamBScoreBoard">0</h5>
+				<button id="HitBallTButtonTeamB" type="button" class="btn btn-primary">Hit 2</button>
+			</div>
+		</div>
+
+		<div class="row" style="padding-top:10px;padding-bottom:5px;">
+			<div class="col-12" style="text-align:center;">
+				<button class="btn btn-primary" id="GenerateResult" type="button">Generate Result</button>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4" style="text-align:center;">
+				<h4>Team 1 Score Board</h4>
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th scope="col">TEAM1</th>
+							<th scope="col">B1</th>
+							<th scope="col">B2</th>
+							<th scope="col">B3</th>
+							<th scope="col">B4</th>
+							<th scope="col">B5</th>
+							<th scope="col">B6</th>
+							<th scope="col">TOTAL</th>
+						</tr>
+						<tr>
+							<th scope="col">Player1</th>
+							<th scope="col" id="TeamAPlayer1Ball1"></th>
+							<th scope="col" id="TeamAPlayer1Ball2"></th>
+							<th scope="col" id="TeamAPlayer1Ball3"></th>
+							<th scope="col" id="TeamAPlayer1Ball4"></th>
+							<th scope="col" id="TeamAPlayer1Ball5"></th>
+							<th scope="col" id="TeamAPlayer1Ball6"></th>
+							<th scope="col" id="TeamAPlayer1Total"></th>
+						</tr>
+						<tr>
+							<th scope="col">Player2</th>
+							<th scope="col" id="TeamAPlayer2Ball1"></th>
+							<th scope="col" id="TeamAPlayer2Ball2"></th>
+							<th scope="col" id="TeamAPlayer2Ball3"></th>
+							<th scope="col" id="TeamAPlayer2Ball4"></th>
+							<th scope="col" id="TeamAPlayer2Ball5"></th>
+							<th scope="col" id="TeamAPlayer2Ball6"></th>
+							<th scope="col" id="TeamAPlayer2Total"></th>
+						</tr>
+						<tr>
+							<th scope="col">Player3</th>
+							<th scope="col" id="TeamAPlayer3Ball1"></th>
+							<th scope="col" id="TeamAPlayer3Ball2"></th>
+							<th scope="col" id="TeamAPlayer3Ball3"></th>
+							<th scope="col" id="TeamAPlayer3Ball4"></th>
+							<th scope="col" id="TeamAPlayer3Ball5"></th>
+							<th scope="col" id="TeamAPlayer3Ball6"></th>
+							<th scope="col" id="TeamAPlayer3Total"></th>
+						</tr>
+						<tr>
+							<th scope="col">Player4</th>
+							<th scope="col" id="TeamAPlayer4Ball1"></th>
+							<th scope="col" id="TeamAPlayer4Ball2"></th>
+							<th scope="col" id="TeamAPlayer4Ball3"></th>
+							<th scope="col" id="TeamAPlayer4Ball4"></th>
+							<th scope="col" id="TeamAPlayer4Ball5"></th>
+							<th scope="col" id="TeamAPlayer4Ball6"></th>
+							<th scope="col" id="TeamAPlayer4Total"></th>
+						</tr>
+						<tr>
+							<th scope="col">Player5</th>
+							<th scope="col" id="TeamAPlayer5Ball1"></th>
+							<th scope="col" id="TeamAPlayer5Ball2"></th>
+							<th scope="col" id="TeamAPlayer5Ball3"></th>
+							<th scope="col" id="TeamAPlayer5Ball4"></th>
+							<th scope="col" id="TeamAPlayer5Ball5"></th>
+							<th scope="col" id="TeamAPlayer5Ball6"></th>
+							<th scope="col" id="TeamAPlayer5Total"></th>
+						</tr>
+						<tr>
+							<th scope="col">Player6</th>
+							<th scope="col" id="TeamAPlayer6Ball1"></th>
+							<th scope="col" id="TeamAPlayer6Ball2"></th>
+							<th scope="col" id="TeamAPlayer6Ball3"></th>
+							<th scope="col" id="TeamAPlayer6Ball4"></th>
+							<th scope="col" id="TeamAPlayer6Ball5"></th>
+							<th scope="col" id="TeamAPlayer6Ball6"></th>
+							<th scope="col" id="TeamAPlayer6Total"></th>
+						</tr>
+						<tr>
+							<th scope="col">Player7</th>
+							<th scope="col" id="TeamAPlayer7Ball1"></th>
+							<th scope="col" id="TeamAPlayer7Ball2"></th>
+							<th scope="col" id="TeamAPlayer7Ball3"></th>
+							<th scope="col" id="TeamAPlayer7Ball4"></th>
+							<th scope="col" id="TeamAPlayer7Ball5"></th>
+							<th scope="col" id="TeamAPlayer7Ball6"></th>
+							<th scope="col" id="TeamAPlayer7Total"></th>
+						</tr>
+						<tr>
+							<th scope="col">Player8</th>
+							<th scope="col" id="TeamAPlayer8Ball1"></th>
+							<th scope="col" id="TeamAPlayer8Ball2"></th>
+							<th scope="col" id="TeamAPlayer8Ball3"></th>
+							<th scope="col" id="TeamAPlayer8Ball4"></th>
+							<th scope="col" id="TeamAPlayer8Ball5"></th>
+							<th scope="col" id="TeamAPlayer8Ball6"></th>
+							<th scope="col" id="TeamAPlayer8Total"></th>
+						</tr>
+						<tr>
+							<th scope="col">Player9</th>
+							<th scope="col" id="TeamAPlayer9Ball1"></th>
+							<th scope="col" id="TeamAPlayer9Ball2"></th>
+							<th scope="col" id="TeamAPlayer9Ball3"></th>
+							<th scope="col" id="TeamAPlayer9Ball4"></th>
+							<th scope="col" id="TeamAPlayer9Ball5"></th>
+							<th scope="col" id="TeamAPlayer9Ball6"></th>
+							<th scope="col" id="TeamAPlayer9Total"></th>
+						</tr>
+						<tr>
+							<th scope="col">Player10</th>
+							<th scope="col" id="TeamAPlayer10Ball1"></th>
+							<th scope="col" id="TeamAPlayer10Ball2"></th>
+							<th scope="col" id="TeamAPlayer10Ball3"></th>
+							<th scope="col" id="TeamAPlayer10Ball4"></th>
+							<th scope="col" id="TeamAPlayer10Ball5"></th>
+							<th scope="col" id="TeamAPlayer10Ball6"></th>
+							<th scope="col" id="TeamAPlayer10Total"></th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+			<div class="col-md-4" style="text-align:center;padding-top:65px;">
+				<h3>MATCH WON BY</h3>
+				<h3 id="MatchWonBy"></h3>
+				<hr style="width:50%;text-align:center;margin-10px;">
+				<h3>MAN OF THE MATCH</h3>
+				<h3 id="ManOfTheMatch"></h3>
+			</div>
+			<div class="col-md-4" style="text-align:center;">
+				<h4>Team 2 Score Board</h4>
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th scope="col">TEAM2</th>
+							<th scope="col">B1</th>
+							<th scope="col">B2</th>
+							<th scope="col">B3</th>
+							<th scope="col">B4</th>
+							<th scope="col">B5</th>
+							<th scope="col">B6</th>
+							<th scope="col">TOTAL</th>
+						</tr>
+						<tr>
+							<th scope="col">Player1</th>
+							<th scope="col" id="TeamBPlayer1Ball1"></th>
+							<th scope="col" id="TeamBPlayer1Ball2"></th>
+							<th scope="col" id="TeamBPlayer1Ball3"></th>
+							<th scope="col" id="TeamBPlayer1Ball4"></th>
+							<th scope="col" id="TeamBPlayer1Ball5"></th>
+							<th scope="col" id="TeamBPlayer1Ball6"></th>
+							<th scope="col" id="TeamBPlayer1Total"></th>
+						</tr>
+						<tr>
+							<th scope="col">Player2</th>
+							<th scope="col" id="TeamBPlayer2Ball1"></th>
+							<th scope="col" id="TeamBPlayer2Ball2"></th>
+							<th scope="col" id="TeamBPlayer2Ball3"></th>
+							<th scope="col" id="TeamBPlayer2Ball4"></th>
+							<th scope="col" id="TeamBPlayer2Ball5"></th>
+							<th scope="col" id="TeamBPlayer2Ball6"></th>
+							<th scope="col" id="TeamBPlayer2Total"></th>
+						</tr>
+						<tr>
+							<th scope="col">Player3</th>
+							<th scope="col" id="TeamBPlayer3Ball1"></th>
+							<th scope="col" id="TeamBPlayer3Ball2"></th>
+							<th scope="col" id="TeamBPlayer3Ball3"></th>
+							<th scope="col" id="TeamBPlayer3Ball4"></th>
+							<th scope="col" id="TeamBPlayer3Ball5"></th>
+							<th scope="col" id="TeamBPlayer3Ball6"></th>
+							<th scope="col" id="TeamBPlayer3Total"></th>
+						</tr>
+						<tr>
+							<th scope="col">Player4</th>
+							<th scope="col" id="TeamBPlayer4Ball1"></th>
+							<th scope="col" id="TeamBPlayer4Ball2"></th>
+							<th scope="col" id="TeamBPlayer4Ball3"></th>
+							<th scope="col" id="TeamBPlayer4Ball4"></th>
+							<th scope="col" id="TeamBPlayer4Ball5"></th>
+							<th scope="col" id="TeamBPlayer4Ball6"></th>
+							<th scope="col" id="TeamBPlayer4Total"></th>
+						</tr>
+						<tr>
+							<th scope="col">Player5</th>
+							<th scope="col" id="TeamBPlayer5Ball1"></th>
+							<th scope="col" id="TeamBPlayer5Ball2"></th>
+							<th scope="col" id="TeamBPlayer5Ball3"></th>
+							<th scope="col" id="TeamBPlayer5Ball4"></th>
+							<th scope="col" id="TeamBPlayer5Ball5"></th>
+							<th scope="col" id="TeamBPlayer5Ball6"></th>
+							<th scope="col" id="TeamBPlayer5Total"></th>
+						</tr>
+						<tr>
+							<th scope="col">Player6</th>
+							<th scope="col" id="TeamBPlayer6Ball1"></th>
+							<th scope="col" id="TeamBPlayer6Ball2"></th>
+							<th scope="col" id="TeamBPlayer6Ball3"></th>
+							<th scope="col" id="TeamBPlayer6Ball4"></th>
+							<th scope="col" id="TeamBPlayer6Ball5"></th>
+							<th scope="col" id="TeamBPlayer6Ball6"></th>
+							<th scope="col" id="TeamBPlayer6Total"></th>
+						</tr>
+						<tr>
+							<th scope="col">Player7</th>
+							<th scope="col" id="TeamBPlayer7Ball1"></th>
+							<th scope="col" id="TeamBPlayer7Ball2"></th>
+							<th scope="col" id="TeamBPlayer7Ball3"></th>
+							<th scope="col" id="TeamBPlayer7Ball4"></th>
+							<th scope="col" id="TeamBPlayer7Ball5"></th>
+							<th scope="col" id="TeamBPlayer7Ball6"></th>
+							<th scope="col" id="TeamBPlayer7Total"></th>
+						</tr>
+						<tr>
+							<th scope="col">Player8</th>
+							<th scope="col" id="TeamBPlayer8Ball1"></th>
+							<th scope="col" id="TeamBPlayer8Ball2"></th>
+							<th scope="col" id="TeamBPlayer8Ball3"></th>
+							<th scope="col" id="TeamBPlayer8Ball4"></th>
+							<th scope="col" id="TeamBPlayer8Ball5"></th>
+							<th scope="col" id="TeamBPlayer8Ball6"></th>
+							<th scope="col" id="TeamBPlayer8Total"></th>
+						</tr>
+						<tr>
+							<th scope="col">Player9</th>
+							<th scope="col" id="TeamBPlayer9Ball1"></th>
+							<th scope="col" id="TeamBPlayer9Ball2"></th>
+							<th scope="col" id="TeamBPlayer9Ball3"></th>
+							<th scope="col" id="TeamBPlayer9Ball4"></th>
+							<th scope="col" id="TeamBPlayer9Ball5"></th>
+							<th scope="col" id="TeamBPlayer9Ball6"></th>
+							<th scope="col" id="TeamBPlayer9Total"></th>
+						</tr>
+						<tr>
+							<th scope="col">Player10</th>
+							<th scope="col" id="TeamBPlayer10Ball1"></th>
+							<th scope="col" id="TeamBPlayer10Ball2"></th>
+							<th scope="col" id="TeamBPlayer10Ball3"></th>
+							<th scope="col" id="TeamBPlayer10Ball4"></th>
+							<th scope="col" id="TeamBPlayer10Ball5"></th>
+							<th scope="col" id="TeamBPlayer10Ball6"></th>
+							<th scope="col" id="TeamBPlayer10Total"></th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
 
 	<script type="text/javascript" src="zoo.js"></script>
 </body>
-
-<div class = "container">
-	<div class="row">
-		<h2 style="text-align: center;">Cricket 10</h2>
-	</div>
-
-	<div class="row">
-
-	</div>
-	
-	<div class="row">
-		<div class="col-sm-6" >
-			<table class="table table-sm table-striped table-bordered">
-			<thead>
-				<tr>
-					<th scope="col">Team 1</th>
-					<th scope="col">B1</th>
-					<th scope="col">B2</th>
-					<th scope="col">B3</th>
-					<th scope="col">B4</th>
-					<th scope="col">B5</th>
-					<th scope="col">B6</th>
-					<th scope="col">TOTAL</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th scope="row">Player 1</th>
-		
-				</tr>
-				<tr>
-					<th scope="row">Player 2</th>
-					<td>Jacob</td>
-					<td>Thornton</td>
-					<td>@fat</td>
-				</tr>
-				<tr>
-					<th scope="row">Player 3</th>
-					<td colspan="2">Larry the Bird</td>
-					<td>@twitter</td>
-				</tr>
-				<tr>
-					<th scope="row">Player 4</th>
-		
-				</tr>
-				<tr>
-					<th scope="row">Player 5</th>
-		
-				</tr>
-				<tr>
-					<th scope="row">Player 6</th>
-		
-				</tr>
-				<tr>
-					<th scope="row">Player 7</th>
-		
-				</tr>
-				<tr>
-					<th scope="row">Player 8</th>
-		
-				</tr>
-				<tr>
-					<th scope="row">Player 9</th>
-		
-				</tr>
-				<tr>
-					<th scope="row">Player 10</th>
-		
-				</tr>
-			</tbody>
-		</table>
-		</div>
-		<div class="col-sm-6" >
-			<table class="table table-sm table-striped table-bordered">
-				<thead>
-					<tr>
-						<th scope="col">Team 1</th>
-						<th scope="col">B1</th>
-						<th scope="col">B2</th>
-						<th scope="col">B3</th>
-						<th scope="col">B4</th>
-						<th scope="col">B5</th>
-						<th scope="col">B6</th>
-						<th scope="col">TOTAL</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th scope="row">Player 1</th>
-			
-					</tr>
-					<tr>
-						<th scope="row">Player 2</th>
-						<td>Jacob</td>
-						<td>Thornton</td>
-						<td>@fat</td>
-					</tr>
-					<tr>
-						<th scope="row">Player 3</th>
-						<td colspan="2">Larry the Bird</td>
-						<td>@twitter</td>
-					</tr>
-					<tr>
-						<th scope="row">Player 4</th>
-			
-					</tr>
-					<tr>
-						<th scope="row">Player 5</th>
-			
-					</tr>
-					<tr>
-						<th scope="row">Player 6</th>
-			
-					</tr>
-					<tr>
-						<th scope="row">Player 7</th>
-			
-					</tr>
-					<tr>
-						<th scope="row">Player 8</th>
-			
-					</tr>
-					<tr>
-						<th scope="row">Player 9</th>
-			
-					</tr>
-					<tr>
-						<th scope="row">Player 10</th>
-			
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	  </div>
-</div>
-
-
-
-
 
 </html>
