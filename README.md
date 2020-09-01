@@ -9,6 +9,8 @@ Once you Hit for one team. its hit button will get disabled , until you hit for 
 
 For Ball 6 of any player , Click hit *twice* for the control to move to Ball 1 of next player
 
+If a player hits 0, his over will get over and his total score will get calculated and control is passed to next player
+
 After Hitting all the Balls Click of Generate Result Button to get the Winning team and Man Of the Match
 
 Also, you can click Generate Result at any point to get Winner and Man of the Match according to the current Score
