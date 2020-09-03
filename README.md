@@ -2,6 +2,11 @@
 
 An Implementation of the Game Cricket using HTML,CSS,Bootstrap and TypeScript.
 
+Deployed on Netlify,
+
+https://serene-heisenberg-4dccd8.netlify.app/
+
+
 Each Team has 20 Players
 
 Team A = Team 1
