@@ -10,16 +10,16 @@ var Team = /** @class */ (function () {
     };
     Team.prototype.addPlayerScore = function (currentPlayerName, currentBallScore, currentBallNuber) {
         for (var i = 0; i < this.players.length; i++) {
-            console.log("iterating players to add the current ball score");
-            console.log(this.players[i]);
-            console.log(this.players[i].playerName);
-            console.log(this.players[i].playerScore);
+            //console.log("iterating players to add the current ball score");
+            //console.log(this.players[i]);
+            //console.log(this.players[i].playerName);
+            //console.log(this.players[i].playerScore);
             if (this.players[i].playerName == currentPlayerName) {
-                console.log("addPlayerScore : matched player : " + this.players[i].playerName);
-                console.log("currentBallScore : " + currentBallScore);
+                //console.log("addPlayerScore : matched player : " + this.players[i].playerName);
+                //console.log("currentBallScore : " + currentBallScore);
                 this.players[i].playerScore = (+this.players[i].playerScore + +currentBallScore);
-                console.log("adding incremented score : " + (+this.players[i].playerScore + +currentBallScore));
-                console.log(currentPlayerName + "Ball" + currentBallNuber);
+                //console.log("adding incremented score : " + (+this.players[i].playerScore + +currentBallScore));
+                //console.log(currentPlayerName + "Ball" + currentBallNuber);
                 var x = document.getElementById(currentPlayerName + "Ball" + currentBallNuber);
                 x.innerHTML = currentBallScore.toString();
                 if (currentBallNuber == 6) {
@@ -101,10 +101,23 @@ function getRandomInteger(min, max) {
     //return Math.floor(Math.random() * 6) + 1;
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
+var tim = 60;
+playerATimer(tim);
+var inter;
 function playOneBallTeamA() {
     var currentBallScore = getRandomInteger(0, 6);
+    generateResultButton.disabled = false;
+    tim = 60;
+    clearInterval(inter);
+    playerBTimer(tim);
     if (currentBallScore == 0) {
         teamA.addTotalPlayerScoreForZero(teamACurrentPlayer, currentBallScore, teamACurrentPlayerBallCount);
+        if (teamACurrentPlayer.indexOf("Player10") != -1) {
+            console.log("**************** Team A Player 10 has hit 0 Ball ****************");
+            hitButonTeamB.disabled = false;
+            hitButonTeamA.disabled = false;
+            generateResult();
+        }
         teamACurrentPlayerNumber++;
         teamACurrentPlayerBallCount = 1;
         var tempCurPlayer = teamACurrentPlayer.split("");
@@ -124,8 +137,6 @@ function playOneBallTeamA() {
     if (teamACurrentPlayerBallCount == 7) {
         teamACurrentPlayerNumber++;
         teamACurrentPlayerBallCount = 1;
-        //let totalPayerScore = document.getElementById(teamACurrentPlayer+"Total");
-        //totalPayerScore.innerHTML ="";
         var tempCurPlayer = teamACurrentPlayer.split("");
         var tempCurPlayerNum = tempCurPlayer.pop();
         console.log("tempCurPlayerNum : " + tempCurPlayerNum);
@@ -136,18 +147,24 @@ function playOneBallTeamA() {
         console.log("teamANextPlayer : " + teamANextPlayer);
         teamACurrentPlayer = teamANextPlayer;
         console.log("teamACurrentPlayer : " + teamACurrentPlayer);
+        if (teamACurrentPlayer == "TeamAPlayer11") {
+            hitButonTeamB.disabled = false;
+            hitButonTeamA.disabled = false;
+            generateResult();
+        }
         return;
     }
     teamA.addPlayerScore(teamACurrentPlayer, currentBallScore, teamACurrentPlayerBallCount);
     teamACurrentPlayerBallCount++;
     teamA.updateTotalScoreinBoard("TeamAScoreBoard");
-    //hitButonTeamA.setAttribute("disabled","true");
     hitButonTeamA.disabled = true;
-    //hitButonTeamB.setAttribute("disabled","false");
     hitButonTeamB.disabled = false;
 }
 function playOneBallTeamB() {
     var currentBallScore = getRandomInteger(0, 6);
+    tim = 60;
+    clearInterval(inter);
+    playerATimer(tim);
     if (currentBallScore == 0) {
         teamB.addTotalPlayerScoreForZero(teamBCurrentPlayer, currentBallScore, teamBCurrentPlayerBallCount);
         if (teamBCurrentPlayer.indexOf("Player10") != -1) {
@@ -196,10 +213,75 @@ function playOneBallTeamB() {
     teamBCurrentPlayerBallCount++;
     //teamB.updateCurrentPlayerScoreInTable();
     teamB.updateTotalScoreinBoard("TeamBScoreBoard");
-    //hitButonTeamB.setAttribute("disabled","true");
     hitButonTeamB.disabled = true;
-    //hitButonTeamA.setAttribute("disabled","false");
     hitButonTeamA.disabled = false;
+}
+function playerATimer(tim) {
+    clearInterval(inter);
+    inter = setInterval(function () {
+        document.getElementById("timer").innerText = "" + tim;
+        tim--;
+        if (tim == -1) {
+            if (teamACurrentPlayerBallCount == 6) {
+                teamACurrentPlayerNumber++;
+                teamACurrentPlayerBallCount = 1;
+                var tempCurPlayer = teamACurrentPlayer.split("");
+                var tempCurPlayerNum = tempCurPlayer.pop();
+                //console.log("tempCurPlayerNum : " + tempCurPlayerNum);
+                tempCurPlayerNum = (+tempCurPlayerNum + 1).toString();
+                tempCurPlayer.push(tempCurPlayerNum);
+                //console.log("tempCurPlayerNum : " + tempCurPlayerNum);
+                var teamANextPlayer = tempCurPlayer.join("");
+                //console.log("teamANextPlayer : " + teamANextPlayer);
+                teamACurrentPlayer = teamANextPlayer;
+                //console.log("teamACurrentPlayer : " + teamACurrentPlayer);
+            }
+            else {
+                teamACurrentPlayerBallCount++;
+            }
+            hitButonTeamA.disabled = true;
+            hitButonTeamB.disabled = false;
+            console.log("Player A Times is uP ! so calling opposite timer !");
+            tim = 60;
+            playerBTimer(tim);
+        }
+    }, 1000);
+}
+function playerBTimer(tim) {
+    clearInterval(inter);
+    inter = setInterval(function () {
+        document.getElementById("timer").innerText = "" + tim;
+        tim--;
+        if (tim == -1) {
+            if (teamBCurrentPlayerBallCount == 6) {
+                teamBCurrentPlayerNumber++;
+                teamBCurrentPlayerBallCount = 1;
+                var tempCurPlayer = teamBCurrentPlayer.split("");
+                var tempCurPlayerNum = tempCurPlayer.pop();
+                console.log("tempCurPlayerNum : " + tempCurPlayerNum);
+                tempCurPlayerNum = (+tempCurPlayerNum + 1).toString();
+                tempCurPlayer.push(tempCurPlayerNum);
+                console.log("tempCurPlayerNum : " + tempCurPlayerNum);
+                var teamBNextPlayer = tempCurPlayer.join("");
+                console.log("teamBNextPlayer : " + teamBNextPlayer);
+                teamBCurrentPlayer = teamBNextPlayer;
+                console.log("teamBCurrentPlayer : " + teamBCurrentPlayer);
+                if (teamBCurrentPlayer == "TeamBPlayer11") {
+                    hitButonTeamB.disabled = false;
+                    hitButonTeamA.disabled = false;
+                    generateResult();
+                }
+            }
+            else {
+                teamBCurrentPlayerBallCount++;
+            }
+            hitButonTeamA.disabled = false;
+            hitButonTeamB.disabled = true;
+            console.log("Player B Times is uP ! so calling opposite timer !");
+            tim = 60;
+            playerATimer(tim);
+        }
+    }, 1000);
 }
 function generateResult() {
     var teamATotal = teamA.getCurrentScore();
@@ -220,6 +302,7 @@ function generateResult() {
     matchWonByDiv.innerHTML = winnerTeam;
     hitButonTeamB.disabled = true;
     hitButonTeamA.disabled = true;
+    clearInterval(inter);
     //let manOfTheMatchDiv = document.getElementById("ManOfTheMatch");
     //manOfTheMatchDiv.innerHTML = "";
 }
@@ -236,6 +319,7 @@ var generateResultButton = document.getElementById("GenerateResult");
 generateResultButton.addEventListener("click", function () {
     generateResult();
 });
+generateResultButton.disabled = true;
 var currentTeamSwitch = "A";
 var teamA = new Team();
 var teamB = new Team();
