@@ -1,5 +1,9 @@
 # Cricket-TS
 
+An Implementation of the Game Cricket , using HTML, CSS and TypeScript.
+
+Each Team has 20 Players
+
 Team A = Team 1
 Team B = Team 2
 
