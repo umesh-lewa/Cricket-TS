@@ -7,7 +7,7 @@ Deployed on Netlify,
 https://serene-heisenberg-4dccd8.netlify.app/
 
 
-Each Team has 20 Players
+Each Team has 10 Players
 
 Team A = Team 1
 Team B = Team 2
